@@ -1,40 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mahe.mypaint.EditDoodle">
-    <com.example.mahe.mypaint.PaintView
-        android:id="@+id/paintView1"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+    tools:context=".EditDoodle" >
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/paintView1"
-        android:layout_marginEnd="93dp"
-        android:src="@drawable/ic_add_circle_black_24dp" />
+    <ImageView
+        android:id="@+id/iv_ttx"
+        android:layout_width="10px"
+        android:layout_height="10px"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/et_txt"
+        android:src="@drawable/icons_design" />
 
-    <ImageButton
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/paintView1"
-        android:layout_marginEnd="46dp"
-        android:src="@drawable/ic_do_not_disturb_on_black_24dp" />
+    <EditText
+        android:id="@+id/et_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btn_clr_all"
+        android:text="MY TEXT"
+        android:textSize="14sp" />
 
-    <ImageButton
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/paintView1"
-        android:layout_marginStart="24dp"
-        android:src="@drawable/ic_edit_black_24dp" />
+    <Button
+        android:id="@+id/btn_save_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_clr_all"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Save Image"
+        android:textSize="14sp" />
 
+    <Button
+        android:id="@+id/btn_clr_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/et_txt"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Clear All"
+        android:textSize="14sp" />
 </RelativeLayout>

@@ -93,7 +93,36 @@ public class CreateDoodle extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the pickedColor from AdapterView
                 mPickedColor = (int) parent.getItemAtPosition(position);
-                paintView.colorChange(mPickedColor);
+                paintView.linecolorChange(mPickedColor);
+                // close the color picker
+                dialog.dismiss();
+            }
+        });
+    }
+    public void backColorClick(View view)
+    {//set background colour
+
+        RelativeLayout r1 = findViewById(R.id.r1);
+        GridView gv = (GridView) ColorPicker.getColorPicker(CreateDoodle.this);
+        // Initialize a new AlertDialog.Builder object
+        AlertDialog.Builder builder = new AlertDialog.Builder(CreateDoodle.this);
+        // Set the alert dialog content to GridView (color picker)
+        builder.setView(gv);
+        // Initialize a new AlertDialog object
+        final AlertDialog dialog = builder.create();
+        // Show the color picker window
+        dialog.show();
+        // Set the color picker dialog size
+        dialog.getWindow().setLayout(
+                750,750);
+
+        // Set an item click listener for GridView widget
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the pickedColor from AdapterView
+                mPickedColor = (int) parent.getItemAtPosition(position);
+                paintView.backcolorChange(mPickedColor);
                 // close the color picker
                 dialog.dismiss();
             }

@@ -61,7 +61,6 @@ public class PaintView extends View {
     public void init(DisplayMetrics metrics,Bitmap bitmap1) {
         int height = metrics.heightPixels;
         int width = metrics.widthPixels;
-        mCanvas = new Canvas();
         if(bitmap1==null)
         {//create doodle
             mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -70,7 +69,10 @@ public class PaintView extends View {
         else
         {//edit doodle with input as bitmap1 immutable bitmap
             Bitmap mutableBitmap = bitmap1.copy(Bitmap.Config.ARGB_8888,true);
-            mCanvas.drawBitmap(mutableBitmap, 0, 0, mBitmapPaint);
+            /*mCanvas.drawBitmap(mutableBitmap, 30, 30, mBitmapPaint);*/
+            Bitmap tempBitmap = Bitmap.createBitmap(mutableBitmap.getWidth(),mutableBitmap.getHeight(), Bitmap.Config.RGB_565);
+            mCanvas = new Canvas(tempBitmap);
+            mCanvas.drawBitmap(mutableBitmap,0,0,null);
         }
         currentColor = DEFAULT_COLOR;
         strokeWidth = BRUSH_SIZE;
@@ -101,9 +103,13 @@ public class PaintView extends View {
     {
         strokeWidth+=n;
     }
-    public void colorChange(int a)
+    public void linecolorChange(int a)
     {
         currentColor = a;
+    }
+    public void backcolorChange(int a)
+    {
+        backgroundColor = a;
     }
     @Override
     protected void onDraw(Canvas canvas) {
