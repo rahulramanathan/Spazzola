@@ -87,10 +87,12 @@ public class PaintView extends View {
     public void clear() {
         backgroundColor = DEFAULT_BG_COLOR;
         paths.clear();
-        normal();
         invalidate();
     }
-
+    public void adJustStrokeWidth(int n)
+    {
+        strokeWidth+=n;
+    }
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.save();

@@ -3,12 +3,15 @@ package com.example.mahe.mypaint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
-public class CreateDoodle extends Activity {
+public class CreateDoodle extends AppCompatActivity {
 
     private PaintView paintView;
 
@@ -49,5 +52,13 @@ public class CreateDoodle extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void plusClick(View view)
+    {
+        paintView.adJustStrokeWidth(+2);
+    }
+    public void minusClick(View view)
+    {
+        paintView.adJustStrokeWidth(-2);
     }
 }
