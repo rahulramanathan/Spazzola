@@ -12,21 +12,20 @@
         <activity
             android:name=".MainActivity"
             android:label="HomePage"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".CreateDoodle"
             android:label="Create"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light"></activity>
         <activity android:name=".SplashActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".EditDoodle"></activity>
     </application>
 
 </manifest>

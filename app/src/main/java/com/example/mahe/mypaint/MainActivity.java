@@ -62,7 +62,10 @@ public class MainActivity extends AppCompatActivity
              intent.putExtra("hi","hi");
             startActivity(intent);
         } else if (id == R.id.edit_doodle) {
-
+            // Edit new doodle
+            intent= new Intent(this,EditDoodle.class);
+            intent.putExtra("hi","hi");
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

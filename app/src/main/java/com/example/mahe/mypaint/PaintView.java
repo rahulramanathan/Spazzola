@@ -20,14 +20,14 @@ import java.util.ArrayList;
 public class PaintView extends View {
 
     public static int BRUSH_SIZE = 20;
-    public static final int DEFAULT_COLOR = Color.RED;
+    public static final int DEFAULT_COLOR = Color.BLACK;
     public static final int DEFAULT_BG_COLOR = Color.WHITE;
     private static final float TOUCH_TOLERANCE = 4;
     private float mX, mY;
     private Path mPath;
     private Paint mPaint;
     private ArrayList<FingerPath> paths = new ArrayList<>();
-    private int currentColor;
+    private int currentColor = DEFAULT_COLOR;
     private int backgroundColor = DEFAULT_BG_COLOR;
     private int strokeWidth;
     private boolean emboss;
@@ -47,7 +47,7 @@ public class PaintView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
-        mPaint.setColor(DEFAULT_COLOR);
+        mPaint.setColor(currentColor);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
@@ -58,15 +58,23 @@ public class PaintView extends View {
         mBlur = new BlurMaskFilter(5, BlurMaskFilter.Blur.NORMAL);
     }
 
-    public void init(DisplayMetrics metrics) {
+    public void init(DisplayMetrics metrics,Bitmap bitmap1) {
         int height = metrics.heightPixels;
         int width = metrics.widthPixels;
-
-        mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        mCanvas = new Canvas(mBitmap);
-
+        mCanvas = new Canvas();
+        if(bitmap1==null)
+        {//create doodle
+            mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            mCanvas = new Canvas(mBitmap);
+        }
+        else
+        {//edit doodle with input as bitmap1 immutable bitmap
+            Bitmap mutableBitmap = bitmap1.copy(Bitmap.Config.ARGB_8888,true);
+            mCanvas.drawBitmap(mutableBitmap, 0, 0, mBitmapPaint);
+        }
         currentColor = DEFAULT_COLOR;
         strokeWidth = BRUSH_SIZE;
+        backgroundColor = DEFAULT_BG_COLOR;
     }
 
     public void normal() {
@@ -92,6 +100,10 @@ public class PaintView extends View {
     public void adJustStrokeWidth(int n)
     {
         strokeWidth+=n;
+    }
+    public void colorChange(int a)
+    {
+        currentColor = a;
     }
     @Override
     protected void onDraw(Canvas canvas) {

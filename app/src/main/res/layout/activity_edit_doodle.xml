@@ -4,42 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/r1"
-    tools:context="com.example.mahe.mypaint.CreateDoodle">
-
+    tools:context="com.example.mahe.mypaint.EditDoodle">
     <com.example.mahe.mypaint.PaintView
-        android:id="@+id/paintView"
+        android:id="@+id/paintView1"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton5"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/paintView"
-        android:layout_marginEnd="115dp"
-        android:layout_marginTop="13dp"
-        android:onClick="plusClick"
+        android:layout_below="@+id/paintView1"
+        android:layout_marginEnd="93dp"
         android:src="@drawable/ic_add_circle_black_24dp" />
 
     <ImageButton
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_alignStart="@+id/imageButton"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_marginStart="67dp"
-        android:onClick="minusClick"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/paintView1"
+        android:layout_marginEnd="46dp"
         android:src="@drawable/ic_do_not_disturb_on_black_24dp" />
 
     <ImageButton
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_marginStart="22dp"
-        android:onClick="lineColorClick"
+        android:layout_below="@+id/paintView1"
+        android:layout_marginStart="24dp"
         android:src="@drawable/ic_edit_black_24dp" />
+
 </RelativeLayout>
