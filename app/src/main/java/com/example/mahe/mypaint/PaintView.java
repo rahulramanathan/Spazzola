@@ -111,11 +111,14 @@ public class PaintView extends View {
     {
         backgroundColor = a;
     }
+<<<<<<< HEAD
     public void undoPathChange()
     {//remove the most recent path drawn
         paths.remove(paths.size()-1);
         invalidate();
     }
+=======
+>>>>>>> a0b2a733c8337e116080111a0e79e96f88501a5d
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.save();
