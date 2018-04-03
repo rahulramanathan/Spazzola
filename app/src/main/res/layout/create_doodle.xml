@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/r1"
+    tools:context="com.example.mahe.mypaint.CreateDoodle">
+
+    <com.example.mahe.mypaint.PaintView
+        android:id="@+id/paintView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/paintView"
+        android:layout_marginEnd="115dp"
+        android:layout_marginTop="13dp"
+        android:onClick="plusClick"
+        android:src="@drawable/ic_add_circle_black_24dp" />
+
+    <ImageButton
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/imageButton"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_marginStart="67dp"
+        android:onClick="minusClick"
+        android:src="@drawable/ic_do_not_disturb_on_black_24dp" />
+
+    <ImageButton
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_marginStart="22dp"
+        android:onClick="lineColorClick"
+        android:src="@drawable/ic_edit_black_24dp"
+        android:id="@+id/imageButton2" />
+
+    <ImageButton
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/imageButton2"
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/imageButton2"
+        android:onClick="backColorClick"
+        android:src="@drawable/ic_colorize_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_marginStart="131dp"
+        android:onClick="undoClick"
+        app:srcCompat="@drawable/ic_undo_black_24dp" />
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/normal"
+        android:title="Normal">
+    </item>
+    <item
+        android:id="@+id/emboss"
+        android:title="Emboss">
+    </item>
+    <item
+        android:id="@+id/blur"
+        android:title="Blur">
+    </item>
+    <item
+        android:id="@+id/clear"
+        android:title="Clear">
+    </item>
+</menu>
