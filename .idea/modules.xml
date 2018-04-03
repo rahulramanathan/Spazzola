@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Doodler-master.iml" filepath="$PROJECT_DIR$/Doodler-master.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/MyPaint.iml" filepath="$PROJECT_DIR$/MyPaint.iml" />
->>>>>>> a0b2a733c8337e116080111a0e79e96f88501a5d
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

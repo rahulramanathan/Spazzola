@@ -11,11 +11,11 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
-
 
 public class PaintView extends View {
 
@@ -37,6 +37,7 @@ public class PaintView extends View {
     private Bitmap mBitmap;
     private Canvas mCanvas;
     private Paint mBitmapPaint = new Paint(Paint.DITHER_FLAG);
+    private boolean existingBitmap = false;
 
     public PaintView(Context context) {
         this(context, null);
@@ -58,27 +59,48 @@ public class PaintView extends View {
         mBlur = new BlurMaskFilter(5, BlurMaskFilter.Blur.NORMAL);
     }
 
-    public void init(DisplayMetrics metrics,Bitmap bitmap1) {
+
+    public void init(DisplayMetrics metrics) {
         int height = metrics.heightPixels;
         int width = metrics.widthPixels;
-        if(bitmap1==null)
-        {//create doodle
-            mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-            mCanvas = new Canvas(mBitmap);
-        }
-        else
+        mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        mCanvas = new Canvas(mBitmap);
+        /*else
         {//edit doodle with input as bitmap1 immutable bitmap
             Bitmap mutableBitmap = bitmap1.copy(Bitmap.Config.ARGB_8888,true);
-            /*mCanvas.drawBitmap(mutableBitmap, 30, 30, mBitmapPaint);*/
+            mCanvas.drawBitmap(mutableBitmap, 30, 30, mBitmapPaint);
             Bitmap tempBitmap = Bitmap.createBitmap(mutableBitmap.getWidth(),mutableBitmap.getHeight(), Bitmap.Config.RGB_565);
             mCanvas = new Canvas(tempBitmap);
             mCanvas.drawBitmap(mutableBitmap,0,0,null);
+            mBitmap = mutableBitmap;
         }
+        */
         currentColor = DEFAULT_COLOR;
         strokeWidth = BRUSH_SIZE;
         backgroundColor = DEFAULT_BG_COLOR;
     }
-
+    public void init(DisplayMetrics metrics, Bitmap bitmap) {
+        int height = metrics.heightPixels;
+        int width = metrics.widthPixels;
+        mBitmap = bitmap;
+        existingBitmap = true;
+//        bitmap.setHeight(height);
+//        bitmap.setWidth(width);
+        mCanvas = new Canvas(bitmap);
+        /*else
+        {//edit doodle with input as bitmap1 immutable bitmap
+            Bitmap mutableBitmap = bitmap1.copy(Bitmap.Config.ARGB_8888,true);
+            mCanvas.drawBitmap(mutableBitmap, 30, 30, mBitmapPaint);
+            Bitmap tempBitmap = Bitmap.createBitmap(mutableBitmap.getWidth(),mutableBitmap.getHeight(), Bitmap.Config.RGB_565);
+            mCanvas = new Canvas(tempBitmap);
+            mCanvas.drawBitmap(mutableBitmap,0,0,null);
+            mBitmap = mutableBitmap;
+        }
+        */
+        currentColor = DEFAULT_COLOR;
+        strokeWidth = BRUSH_SIZE;
+        backgroundColor = DEFAULT_BG_COLOR;
+    }
     public void normal() {
         emboss = false;
         blur = false;
@@ -110,19 +132,19 @@ public class PaintView extends View {
     public void backcolorChange(int a)
     {
         backgroundColor = a;
-    }
-<<<<<<< HEAD
-    public void undoPathChange()
-    {//remove the most recent path drawn
-        paths.remove(paths.size()-1);
         invalidate();
     }
-=======
->>>>>>> a0b2a733c8337e116080111a0e79e96f88501a5d
+    public void undoPathChange()
+    {//remove the most recent path drawn
+        if(paths.size()!=0)
+            paths.remove(paths.size()-1);
+        invalidate();
+    }
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.save();
-        mCanvas.drawColor(backgroundColor);
+        if(!existingBitmap)
+            mCanvas.drawColor(backgroundColor);
 
         for (FingerPath fp : paths) {
             mPaint.setColor(fp.color);

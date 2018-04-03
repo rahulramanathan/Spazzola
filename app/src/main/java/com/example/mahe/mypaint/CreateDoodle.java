@@ -34,7 +34,7 @@ public class CreateDoodle extends AppCompatActivity {
         paintView = findViewById(R.id.paintView);
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        paintView.init(metrics,null);
+        paintView.init(metrics);
     }
 
     @Override
@@ -71,17 +71,17 @@ public class CreateDoodle extends AppCompatActivity {
     {
         paintView.adJustStrokeWidth(-2);
     }
-<<<<<<< HEAD
+
     public void undoClick(View view)
     {
         paintView.undoPathChange();
     }
-=======
->>>>>>> a0b2a733c8337e116080111a0e79e96f88501a5d
     public void lineColorClick(View view)
     {
         RelativeLayout r1 = findViewById(R.id.r1);
         GridView gv = (GridView) ColorPicker.getColorPicker(CreateDoodle.this);
+        gv.setColumnWidth(5);
+        gv.setNumColumns(10);
         // Initialize a new AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(CreateDoodle.this);
         // Set the alert dialog content to GridView (color picker)
@@ -92,7 +92,7 @@ public class CreateDoodle extends AppCompatActivity {
         dialog.show();
         // Set the color picker dialog size
         dialog.getWindow().setLayout(
-                750,750);
+                800,800);
 
         // Set an item click listener for GridView widget
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -111,6 +111,8 @@ public class CreateDoodle extends AppCompatActivity {
 
         RelativeLayout r1 = findViewById(R.id.r1);
         GridView gv = (GridView) ColorPicker.getColorPicker(CreateDoodle.this);
+        gv.setColumnWidth(5);
+        gv.setNumColumns(10);
         // Initialize a new AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(CreateDoodle.this);
         // Set the alert dialog content to GridView (color picker)
@@ -121,7 +123,7 @@ public class CreateDoodle extends AppCompatActivity {
         dialog.show();
         // Set the color picker dialog size
         dialog.getWindow().setLayout(
-                750,750);
+                800,800);
 
         // Set an item click listener for GridView widget
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
