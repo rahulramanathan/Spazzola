@@ -1,6 +1,7 @@
 package com.example.mahe.mypaint;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
@@ -9,17 +10,25 @@ import android.graphics.EmbossMaskFilter;
 import android.graphics.MaskFilter;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.net.Uri;
+import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class PaintView extends View {
 
     public static int BRUSH_SIZE = 20;
+    int counter = 0;
     public static final int DEFAULT_COLOR = Color.BLACK;
     public static final int DEFAULT_BG_COLOR = Color.WHITE;
     private static final float TOUCH_TOLERANCE = 4;
@@ -117,7 +126,8 @@ public class PaintView extends View {
     }
 
     public void clear() {
-        backgroundColor = DEFAULT_BG_COLOR;
+        if(!existingBitmap)
+            backgroundColor = DEFAULT_BG_COLOR;
         paths.clear();
         invalidate();
     }
@@ -139,6 +149,32 @@ public class PaintView extends View {
         if(paths.size()!=0)
             paths.remove(paths.size()-1);
         invalidate();
+    }
+    public void save() {//enter code to save bitmap image to gallery
+        File storageLoc = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES); //context.getExternalFilesDir(null);
+        String filename = "SpazzolaPic"+counter;
+        counter++;
+        File file = new File(storageLoc, filename + ".jpg");
+
+        try{
+            FileOutputStream fos = new FileOutputStream(file);
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.close();
+
+            scanFile(getContext(), Uri.fromFile(file));
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Toast.makeText(getContext(),"Check your Directory_pictures",Toast.LENGTH_SHORT).show();
+    }
+    private static void scanFile(Context context, Uri imageUri){
+        Intent scanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        scanIntent.setData(imageUri);
+        context.sendBroadcast(scanIntent);
+
     }
     @Override
     protected void onDraw(Canvas canvas) {

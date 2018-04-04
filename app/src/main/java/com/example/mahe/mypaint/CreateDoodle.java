@@ -59,6 +59,9 @@ public class CreateDoodle extends AppCompatActivity {
             case R.id.clear:
                 paintView.clear();
                 return true;
+            case R.id.save:
+                paintView.save();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -81,7 +84,7 @@ public class CreateDoodle extends AppCompatActivity {
         RelativeLayout r1 = findViewById(R.id.r1);
         GridView gv = (GridView) ColorPicker.getColorPicker(CreateDoodle.this);
         gv.setColumnWidth(5);
-        gv.setNumColumns(10);
+        gv.setNumColumns(8);
         // Initialize a new AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(CreateDoodle.this);
         // Set the alert dialog content to GridView (color picker)
@@ -112,7 +115,7 @@ public class CreateDoodle extends AppCompatActivity {
         RelativeLayout r1 = findViewById(R.id.r1);
         GridView gv = (GridView) ColorPicker.getColorPicker(CreateDoodle.this);
         gv.setColumnWidth(5);
-        gv.setNumColumns(10);
+        gv.setNumColumns(8);
         // Initialize a new AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(CreateDoodle.this);
         // Set the alert dialog content to GridView (color picker)

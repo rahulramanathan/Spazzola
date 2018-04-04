@@ -7,7 +7,7 @@
     <FrameLayout
         android:id="@+id/painting_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" >
     </FrameLayout>
@@ -21,6 +21,45 @@
         android:layout_alignParentTop="true"
         android:scaleType="fitXY"
         android:src="@drawable/icons_design" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="69dp"
+        android:onClick="plusClick"
+        android:src="@drawable/ic_add_circle_black_24dp" />
+
+    <ImageButton
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_marginEnd="18dp"
+        android:onClick="minusClick"
+        android:src="@drawable/ic_do_not_disturb_on_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@+id/imageButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:onClick="lineColorClick"
+        android:src="@drawable/ic_edit_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_marginStart="76dp"
+        android:src="@drawable/ic_undo_black_24dp" />
 
 
 </RelativeLayout>

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ColorPicker {
     private Context mContext;
     // GridView column width and TextView width, height in pixels
-    private static int columnWidth = 60;
+    private static int columnWidth = 80;
 
     public ColorPicker(Context context){
         this.mContext = context;

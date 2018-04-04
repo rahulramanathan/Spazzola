@@ -10,7 +10,7 @@
     <com.example.mahe.mypaint.PaintView
         android:id="@+id/paintView"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="500dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
@@ -18,19 +18,19 @@
         android:id="@+id/imageButton"
         android:layout_width="35dp"
         android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/paintView"
-        android:layout_marginEnd="115dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginBottom="13dp"
+        android:layout_marginEnd="101dp"
         android:onClick="plusClick"
         android:src="@drawable/ic_add_circle_black_24dp" />
 
     <ImageButton
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_alignStart="@+id/imageButton"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/imageButton"
-        android:layout_marginStart="67dp"
+        android:layout_marginEnd="36dp"
         android:onClick="minusClick"
         android:src="@drawable/ic_do_not_disturb_on_black_24dp" />
 
@@ -47,18 +47,18 @@
     <ImageButton
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_marginStart="22dp"
-        android:layout_toEndOf="@+id/imageButton2"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_marginStart="98dp"
         android:onClick="backColorClick"
         android:src="@drawable/ic_colorize_black_24dp" />
+
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/imageButton"
-        android:layout_marginStart="131dp"
+        android:layout_centerHorizontal="true"
         android:onClick="undoClick"
-        app:srcCompat="@drawable/ic_undo_black_24dp" />
+        android:src="@drawable/ic_undo_black_24dp" />
 </RelativeLayout>
